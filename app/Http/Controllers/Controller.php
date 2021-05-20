@@ -25,4 +25,10 @@ class Controller extends BaseController
             'expires_in' => Auth::factory()->getTTL() * 60
         ], 200);
     }
+
+    protected function jsonResponse($data, $code = 200)
+    {
+        return response()->json($data, $code,
+            ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
+    }
 }

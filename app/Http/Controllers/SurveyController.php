@@ -9,6 +9,6 @@ class SurveyController extends Controller
     //
     public function show($id, Request $request)
     {
-        return response()->json(Question::findOrFail($id));
+        return $this->jsonResponse(Question::find($id));
     }
 }
