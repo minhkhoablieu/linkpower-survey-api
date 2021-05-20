@@ -22,5 +22,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     
     // Matches "/api/login
     $router->post('login', 'AuthController@login');
- 
+    
+
+    //survey
+
+    $router->get('survey/{id}','SurveyController@show');
 });
