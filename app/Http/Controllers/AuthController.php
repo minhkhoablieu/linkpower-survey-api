@@ -9,11 +9,37 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
-     * Store a new user.
-     *
-     * @param  Request  $request
-     * @return Response
+     * @OA\Get(
+     *     path="/api/login",
+     *     operationId="/api/login",
+     *     tags={"yourtag"},
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="Email to login",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="Password",
+     *         in="query",
+     *         description="Password to login",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Return token",
+     *         @OA\JsonContent()
+     *     ),
+     *     @OA\Response(
+     *         response="401",
+     *         description="Error: Unauthorized.",
+     *     ),
+     * )
      */
+
+   
     public function register(Request $request)
     {
         //validate incoming request 
