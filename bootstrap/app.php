@@ -75,9 +75,10 @@ $app->configure('swagger-lume');
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    // App\Http\Middleware\ExampleMiddleware::class
+    'Nord\Lumen\Cors\CorsMiddleware',
+]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
@@ -99,6 +100,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\SwaggerLume\ServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+$app->register('Nord\Lumen\Cors\CorsServiceProvider');
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
